@@ -75,13 +75,13 @@ export default function Sidebar() {
             <SidebarItem href="#">Sharing Session</SidebarItem>
           </SidebarMenu>
         </SidebarGroup>
-        <SidebarGroup>
+        {/* <SidebarGroup>
           <SidebarGroupLabel>Contact</SidebarGroupLabel>
           <SidebarMenu>
             <SidebarItem href="#">Menu 1</SidebarItem>
             <SidebarItem href="#">Menu 2</SidebarItem>
           </SidebarMenu>
-        </SidebarGroup>
+        </SidebarGroup> */}
       </div>
     </aside>
   );
