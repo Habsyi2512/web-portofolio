@@ -23,22 +23,16 @@ export default function NavbarContextProvider({
 }: {
   children: ReactNode;
 }) {
-  const [isOpenSidebar, setIsOpenSidebar] = useState(window.innerWidth >= 1024);
-
+  const [isOpenSidebar, setIsOpenSidebar] = useState(false);
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setIsOpenSidebar(true);
-      } else {
-        setIsOpenSidebar(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    if (isOpenSidebar) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    // Bersihkan efek saat komponen tidak aktif
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isOpenSidebar]);
 
   return (
     <NavbarContext.Provider value={{ isOpenSidebar, setIsOpenSidebar }}>
