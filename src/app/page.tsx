@@ -8,7 +8,7 @@ export default function Page() {
         You can also use variant modifiers to target media queries like
         responsive breakpoints, dark mode, prefers-reduced-motion, and more. For
         example, use md:bg-green-500 to apply the bg-green-500 utility at only
-        medium screen sizes and above.
+        medium screen sizes and above. hjshdhsd
       </Paragraph>
     </div>
   );
