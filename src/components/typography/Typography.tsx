@@ -12,7 +12,7 @@ function TextTitle({
   return (
     <h1
       {...props}
-      className={`text-2xl sm:text-3xl font-extrabold text-slate-900 mb-5 ${className}`}
+      className={`text-2xl sm:text-3xl font-extrabold tracking-wide text-slate-900 mb-5 ${className}`}
     >
       {title}
     </h1>
@@ -31,7 +31,7 @@ function TextSubtitle({
   return (
     <h1
       {...props}
-      className={`text-xl font-bold text-slate-900 mb-2 ${className}`}
+      className={`text-xl font-bold tracking-wide text-slate-900 mb-2 ${className}`}
     >
       {title}
     </h1>
