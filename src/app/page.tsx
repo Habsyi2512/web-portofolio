@@ -2,7 +2,7 @@ import { Paragraph, TextTitle } from "@/components/typography/Typography";
 
 export default function Page() {
   return (
-    <div className="h-[2000px] p-4 space-y-4">
+    <div className="h-[2000px] p-4 space-y-4 text-justify">
       <TextTitle title="Introduction" />
       <Paragraph>
         <strong>Selamat datang di CinC – Mitra Terbaik Anda dalam Solusi IT Konsultan</strong>
