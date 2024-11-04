@@ -1,4 +1,5 @@
 import BoxContent from "@/components/box/BoxContent";
+import { Card } from "@/components/card/card";
 import {
   Paragraph,
   TextSubtitle,
@@ -20,7 +21,7 @@ export default function Portofolio() {
       <TextSubtitle title="Showcase" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <div className="border p-4 rounded">
+          <Card>
             <div className="border bg-gray-400 aspect-video flex flex-col justify-center mb-2">
               <p className="text-center font-bold text-lg text-gray-200">
                 Image 1:1
@@ -36,7 +37,7 @@ export default function Portofolio() {
                 negara-negara lainnya.
               </Paragraph>
             </div>
-          </div>
+          </Card>
         </div>
         <div>
           <div className="border p-4 rounded">
