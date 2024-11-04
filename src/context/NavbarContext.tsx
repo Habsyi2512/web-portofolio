@@ -55,21 +55,16 @@ export default function NavbarContextProvider({
 
     const handleResize = () => {
       const currentWidth = window.innerWidth;
-
       if (previousWidth >= 1024 && currentWidth < 1024 && isOpenSidebar) {
         setIsOpenSidebar(false);
       }
-
       // Update previousWidth untuk digunakan pada event resize berikutnya
       previousWidth = currentWidth;
     };
-
     window.addEventListener("resize", handleResize);
-
     // Bersihkan event listener saat komponen dilepas
     return () => window.removeEventListener("resize", handleResize);
   }, [isOpenSidebar]);
-
   return (
     <NavbarContext.Provider value={{ isOpenSidebar, setIsOpenSidebar }}>
       {children}
