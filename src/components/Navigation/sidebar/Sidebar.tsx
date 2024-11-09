@@ -6,7 +6,7 @@ import SidebarGroupLabel from "./SidebarGroupLabel";
 import SidebarMenu from "./SidebarGroupContent";
 import SidebarItem from "./SidebarItem";
 import { XMarkIcon } from "@/components/icons/XMarkIcon";
-import { NavbarContext } from "@/context/NavbarContext";
+import { NavbarContext } from "@/context/NavbarProvider";
 
 export default function Sidebar() {
   const context = useContext(NavbarContext);

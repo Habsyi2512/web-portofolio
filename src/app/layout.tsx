@@ -3,7 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navigation/Navbar";
 import Sidebar from "@/components/navigation/sidebar/Sidebar";
-import NavbarContextProvider from "@/context/NavbarContext";
+import NavbarProvider from "@/context/NavbarProvider";
+import ThemeProvider from "@/context/ThemeProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,13 +33,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
-        <NavbarContextProvider>
-          <Navbar />
-          <div className="w-full flex gap-x-2 max-w-7xl mx-auto px-4 sm:px-5 md:px-8 py-10">
-            <Sidebar />
-            <div className="w-full">{children}</div>
-          </div>
-        </NavbarContextProvider>
+        <ThemeProvider>
+          <NavbarProvider>
+            <Navbar />
+            <div className="w-full flex gap-x-2 max-w-7xl mx-auto px-4 sm:px-5 md:px-8 py-10">
+              <Sidebar />
+              <div className="w-full">{children}</div>
+            </div>
+          </NavbarProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

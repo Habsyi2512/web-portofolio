@@ -12,7 +12,7 @@ export default function Portofolio() {
     <>
       <TextTitle title="Overview" />
       <BoxContent>
-        <Paragraph>
+        <Paragraph className="">
           Sebagai fullstack web developer, saya ahli dalam menciptakan website
           responsif dengan desain UX menarik menggunakan berbagai framework dan
           teknologi terkini.

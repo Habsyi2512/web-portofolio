@@ -14,11 +14,14 @@ interface NavbarContextType {
   setIsOpenSidebar: Dispatch<SetStateAction<boolean>>;
 }
 
-export const NavbarContext = createContext<NavbarContextType | undefined>(
-  undefined
+export const NavbarContext = createContext<NavbarContextType>(
+  {
+    isOpenSidebar: false,
+    setIsOpenSidebar: () => {},
+  }
 );
 
-export default function NavbarContextProvider({
+export default function NavbarProvider({
   children,
 }: {
   children: ReactNode;

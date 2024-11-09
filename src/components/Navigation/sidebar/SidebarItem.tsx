@@ -3,7 +3,7 @@
 import React, { useContext } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NavbarContext } from "@/context/NavbarContext";
+import { NavbarContext } from "@/context/NavbarProvider";
 
 export default function SidebarItem({
   children,
