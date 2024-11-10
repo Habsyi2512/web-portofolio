@@ -66,13 +66,13 @@ export default function Sidebar() {
           <SidebarMenu>
             <SidebarItem href="/portofolio">Portofolio</SidebarItem>
             <SidebarItem href="/current-project">Current Project</SidebarItem>
-            <SidebarItem href="#">Paid Project</SidebarItem>
+            <SidebarItem href="/paid-project">Paid Project</SidebarItem>
           </SidebarMenu>
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Blog</SidebarGroupLabel>
           <SidebarMenu>
-            <SidebarItem href="#">Sharing Session</SidebarItem>
+            <SidebarItem href="/sharing-session">Sharing Session</SidebarItem>
           </SidebarMenu>
         </SidebarGroup>
         {/* <SidebarGroup>
