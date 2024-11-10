@@ -59,7 +59,10 @@ export default function Navbar() {
                 return (
                   <li key={item.label}>
                     <button
-                      onClick={() => setTheme(item.label)}
+                      onClick={() => {
+                        setTheme(item.label);
+                        setDisplayMode(false);
+                      }}
                       className={`w-28 text-left py-2 ${
                         item.label == theme && "text-colorSky"
                       } hover:bg-slate-100 px-2 flex items-center gap-x-1`}
