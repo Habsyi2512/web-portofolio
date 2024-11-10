@@ -16,7 +16,7 @@ export default function Navbar() {
         <div className="flex h-full justify-between items-center gap-x-4">
           <div className="w-fit h-full flex items-center gap-x-4">
             <button
-              onClick={() => setDisplayMode(true)} // Open dropdown
+              onClick={() => setDisplayMode(true)}
               className="group lg:hidden border border-slate-400 hover:border-slate-500 p-1 rounded-md active:border-slate-400"
             >
               <Bars3Icon className="size-6 text-slate-400 group-hover:text-slate-500 group-active:text-slate-400" />
@@ -32,7 +32,7 @@ export default function Navbar() {
           </div>
           <div className="relative h-full w-fit flex items-center">
             <button
-              onClick={() => setDisplayMode(!displayMode)} // Toggle dropdown visibility
+              onClick={() => setDisplayMode(!displayMode)} 
               className="group p-1 rounded-md active:border-slate-400"
             >
               theme
