@@ -22,17 +22,14 @@ export default function ThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
+  const [theme, setTheme] = useState<AllowedThemes>(() => {
+    const storedTheme = localStorage.getItem("theme") as AllowedThemes | null;
+    return storedTheme ?? "system";
+  });
+
   const [systemMode, setSystemMode] = useState<SystemMode>(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const currentTheme = mediaQuery.matches ? "dark" : "light";
-    return currentTheme;
-  });
-  const [theme, setTheme] = useState<AllowedThemes>(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-      return storedTheme as AllowedThemes;
-    }
-    return "system";
+    return mediaQuery.matches ? "dark" : "light";
   });
 
   useEffect(() => {
@@ -42,15 +39,12 @@ export default function ThemeProvider({
   useEffect(() => {
     if (theme === "system") {
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-      const handleChange = () => {
-        const currentTheme = mediaQuery.matches ? "dark" : "light";
-        setSystemMode(currentTheme);
-      };
+      const handleChange = () =>
+        setSystemMode(mediaQuery.matches ? "dark" : "light");
       mediaQuery.addEventListener("change", handleChange);
       handleChange();
-      return () => {
-        mediaQuery.removeEventListener("change", handleChange);
-      };
+
+      return () => mediaQuery.removeEventListener("change", handleChange);
     }
   }, [theme]);
 

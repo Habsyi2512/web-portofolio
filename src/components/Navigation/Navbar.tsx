@@ -64,7 +64,7 @@ export default function Navbar() {
                         setDisplayMode(false);
                       }}
                       className={`w-28 text-left py-2 ${
-                        item.label == theme && "text-colorSky"
+                        item.label == theme ? "text-colorSky" : "text-colorZinc"
                       } hover:bg-slate-100 px-2 flex items-center gap-x-1`}
                     >
                       {item.icon}
