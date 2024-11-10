@@ -23,7 +23,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full h-20 border-b border-slate-900/10 dark:border-slate-200/10 sticky lg:z-10 top-0 left-0 bg-white/50 dark:bg-colorDarkFirst/50 backdrop-blur-md">
+    <header className="w-full h-20 border-b border-slate-900/10 dark:border-colorDarkThird/50 sticky lg:z-10 top-0 left-0 bg-white/50 dark:bg-colorDarkFirst/50 backdrop-blur-md">
       <div className="w-full h-full mx-auto max-w-7xl px-4 sm:px-5 md:px-8 py-4">
         <div className="flex h-full justify-between items-center gap-x-4">
           <div className="w-fit h-full flex items-center gap-x-4">
@@ -53,7 +53,7 @@ export default function Navbar() {
             <motion.ul
               initial={{ scale: 0 }}
               animate={{ scale: displayMode ? 1 : 0 }}
-              className="border shadow bg-white rounded-lg absolute top-11 right-0 py-2"
+              className="border dark:border-colorDarkThird shadow bg-white dark:bg-colorDarkFirst rounded-lg absolute top-11 right-0 py-2"
             >
               {listIcon.map((item) => {
                 return (
@@ -67,7 +67,7 @@ export default function Navbar() {
                         item.label == theme
                           ? "text-colorSky"
                           : "text-colorDarkSecond"
-                      } hover:bg-slate-100 px-2 flex items-center gap-x-1`}
+                      } hover:bg-slate-100 dark:hover:bg-colorDarkThird px-2 flex items-center gap-x-1`}
                     >
                       {item.icon}
                       <span className="font-semibold text-sm capitalize">
