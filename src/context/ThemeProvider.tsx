@@ -33,8 +33,21 @@ export default function ThemeProvider({
   });
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    if (theme != "system") {
+      localStorage.setItem("theme", theme);
+    } else {
+      localStorage.setItem("theme", systemMode);
+    }
+  }, [theme, systemMode]);
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === "dark" || (theme === "system" && systemMode === "dark")) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  }, [theme, systemMode]);
 
   useEffect(() => {
     if (theme === "system") {

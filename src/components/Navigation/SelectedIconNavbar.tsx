@@ -13,9 +13,9 @@ export default function SelectedIconNavbar() {
   } = {
     system:
       systemMode === "light" ? (
-        <SunIcon className="size-5 text-colorZinc" />
+        <SunIcon className="size-5 text-colorDarkSecond" />
       ) : (
-        <MoonIcon className="size-5 text-colorZinc" />
+        <MoonIcon className="size-5 text-colorDarkSecond" />
       ),
     light: <SunIcon className="size-5 text-colorSky" />,
     dark: <MoonIcon className="size-5 text-colorSky" />,

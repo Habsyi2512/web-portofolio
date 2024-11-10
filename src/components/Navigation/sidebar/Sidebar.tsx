@@ -32,9 +32,9 @@ export default function Sidebar() {
         isOpenSidebar
           ? "transition-transform duration-200"
           : "-translate-x-full lg:translate-x-0 duration-0"
-      } bg-white/30 backdrop-blur-sm`}
+      } bg-white/30 dark:bg-colorDarkFirst/30 backdrop-blur-sm`}
     >
-      <div className="w-72 max-w-[90%] p-8 lg:p-0 bg-white lg:bg-auto border-r rounded-r-lg h-full lg:h-fit lg:border-r-0 sticky top-[119px]">
+      <div className="w-72 max-w-[90%] p-8 lg:p-0 bg-white dark:bg-colorDarkFirst lg:bg-auto border-r dark:border-colorDarkSecond rounded-r-lg h-full lg:h-fit lg:border-r-0 sticky top-[119px]">
         <div className="lg:hidden flex items-center justify-between mb-5">
           <div className="h-full flex items-center w-fit">
             <h1 className="text-2xl text-colorSky">

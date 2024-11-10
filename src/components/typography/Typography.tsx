@@ -12,7 +12,7 @@ function TextTitle({
   return (
     <h1
       {...props}
-      className={`text-2xl sm:text-3xl font-extrabold tracking-wide text-slate-900 mb-5 ${className}`}
+      className={`text-2xl sm:text-3xl font-extrabold tracking-wide text-colorDarkFirst dark:text-colorDarkThird mb-5 ${className}`}
     >
       {title}
     </h1>
@@ -31,7 +31,7 @@ function TextSubtitle({
   return (
     <h1
       {...props}
-      className={`text-xl font-bold tracking-wide text-slate-900 mb-2 ${className}`}
+      className={`text-xl font-bold tracking-wide text-colorDarkFirst dark:text-colorDarkThird mb-2 ${className}`}
     >
       {title}
     </h1>
@@ -45,7 +45,11 @@ function Paragraph({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <p className={`text-slate-700 ${className}`}>{children}</p>;
+  return (
+    <p className={`text-colorDarkSecond dark:text-colorDarkThird ${className}`}>
+      {children}
+    </p>
+  );
 }
 
 export { TextTitle, TextSubtitle, Paragraph };

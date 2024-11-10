@@ -23,7 +23,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full h-20 border-b border-slate-900/10 sticky lg:z-10 top-0 left-0 bg-white/50 backdrop-blur-md">
+    <header className="w-full h-20 border-b border-slate-900/10 dark:border-slate-200/10 sticky lg:z-10 top-0 left-0 bg-white/50 dark:bg-colorDarkFirst/50 backdrop-blur-md">
       <div className="w-full h-full mx-auto max-w-7xl px-4 sm:px-5 md:px-8 py-4">
         <div className="flex h-full justify-between items-center gap-x-4">
           <div className="w-fit h-full flex items-center gap-x-4">
@@ -38,7 +38,7 @@ export default function Navbar() {
                 <span className="font-bold">C</span>
                 <span className="text-base">in</span>
                 <span className="font-bold">C</span>
-                <span className="ordinal ">official</span>
+                <span className="ordinal">official</span>
               </h1>
             </div>
           </div>
@@ -64,7 +64,9 @@ export default function Navbar() {
                         setDisplayMode(false);
                       }}
                       className={`w-28 text-left py-2 ${
-                        item.label == theme ? "text-colorSky" : "text-colorZinc"
+                        item.label == theme
+                          ? "text-colorSky"
+                          : "text-colorDarkSecond"
                       } hover:bg-slate-100 px-2 flex items-center gap-x-1`}
                     >
                       {item.icon}
