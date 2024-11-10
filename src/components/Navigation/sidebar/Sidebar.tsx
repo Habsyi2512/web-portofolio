@@ -1,21 +1,18 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SidebarGroup from "./SidebarGroup";
 import SidebarGroupLabel from "./SidebarGroupLabel";
 import SidebarMenu from "./SidebarGroupContent";
 import SidebarItem from "./SidebarItem";
 import { XMarkIcon } from "@/components/icons/XMarkIcon";
 import { NavbarContext } from "@/context/NavbarProvider";
+import { motion } from "framer-motion";
 
 export default function Sidebar() {
-  const context = useContext(NavbarContext);
-
-  if (!context) {
-    throw new Error("Navbar must be used within a NavbarProvider");
-  }
-
-  const { isOpenSidebar, setIsOpenSidebar } = context;
+  const { isOpenSidebar, setIsOpenSidebar } = useContext(NavbarContext);
+  // const [isMobile, setIsMobile] = useState(false);
+  // const [isResizing, setIsResizing] = useState(false);
 
   const handleClickOutside = (event: React.MouseEvent<HTMLElement>) => {
     if (
@@ -25,16 +22,13 @@ export default function Sidebar() {
       setIsOpenSidebar(false);
     }
   };
+
   return (
-    <aside
+    <motion.aside
       onClick={handleClickOutside}
-      className={`fixed w-full lg:w-fit h-screen lg:h-auto top-0 left-0 lg:relative tracking-wide ${
-        isOpenSidebar
-          ? "transition-transform duration-200"
-          : "-translate-x-full lg:translate-x-0 duration-0"
-      } bg-white/30 dark:bg-colorDarkFirst/30 backdrop-blur-sm`}
+      className={`fixed w-full lg:w-fit h-screen lg:h-auto top-0 left-0 lg:relative tracking-wide bg-white/30 dark:bg-colorDarkFirst/30 backdrop-blur-sm`}
     >
-      <div className="w-72 max-w-[90%] p-8 lg:p-0 bg-white dark:bg-colorDarkFirst lg:bg-auto border-r dark:border-colorDarkSecond rounded-r-lg h-full lg:h-fit lg:border-r-0 sticky top-[119px]">
+      <div className="w-72 max-w-[90%] p-8 lg:p-0 bg-white dark:bg-colorDarkFirst border-r dark:border-colorDarkSecond rounded-r-lg h-full lg:h-fit lg:border-r-0 sticky top-[119px]">
         <div className="lg:hidden flex items-center justify-between mb-5">
           <div className="h-full flex items-center w-fit">
             <h1 className="text-2xl text-colorSky">
@@ -75,14 +69,7 @@ export default function Sidebar() {
             <SidebarItem href="/sharing-session">Sharing Session</SidebarItem>
           </SidebarMenu>
         </SidebarGroup>
-        {/* <SidebarGroup>
-          <SidebarGroupLabel>Contact</SidebarGroupLabel>
-          <SidebarMenu>
-            <SidebarItem href="#">Menu 1</SidebarItem>
-            <SidebarItem href="#">Menu 2</SidebarItem>
-          </SidebarMenu>
-        </SidebarGroup> */}
       </div>
-    </aside>
+    </motion.aside>
   );
 }

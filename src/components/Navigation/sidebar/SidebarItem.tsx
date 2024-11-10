@@ -29,7 +29,7 @@ export default function SidebarItem({
         className={`block border-l ${
           currentPathname == href
             ? "text-colorSky border-colorSky"
-            : "text-colorDarkSecond hover:text-colorDarkFirst dark:hover:text-colorDarkThird border-slate-400/50 hover:border-slate-400"
+            : "text-colorDarkSecond hover:text-colorDarkFirst dark:hover:text-colorLightSecond border-slate-400/50 hover:border-slate-400"
         } pl-4 py-1 -ml-px`}
       >
         {children}

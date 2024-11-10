@@ -16,6 +16,8 @@ const config: Config = {
         colorDarkFirst: "rgb(15 23 42)",
         colorDarkSecond: "rgb(51 65 85)",
         colorDarkThird: "rgb(100 116 139)",
+        colorLightFirst: "rgb(226 232 240)",
+        colorLightSecond: "rgb(148 163 184)",
       },
     },
   },
