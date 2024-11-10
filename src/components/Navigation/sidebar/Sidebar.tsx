@@ -65,7 +65,7 @@ export default function Sidebar() {
           <SidebarGroupLabel>Project</SidebarGroupLabel>
           <SidebarMenu>
             <SidebarItem href="/portofolio">Portofolio</SidebarItem>
-            <SidebarItem href="#">Current Project</SidebarItem>
+            <SidebarItem href="/current-project">Current Project</SidebarItem>
             <SidebarItem href="#">Paid Project</SidebarItem>
           </SidebarMenu>
         </SidebarGroup>
