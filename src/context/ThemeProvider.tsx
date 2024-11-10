@@ -1,16 +1,20 @@
 "use client";
 
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
-// Memperbarui tipe setTheme agar dapat menerima parameter theme
+export type AllowedThemes = "light" | "dark" | "system";
+export type SystemMode = "light" | "dark";
+
 interface ThemeContextProps {
-  theme: "light" | "dark" | "system"; 
-  setTheme: (theme: "light" | "dark" | "system") => void; 
+  theme: AllowedThemes;
+  systemMode: SystemMode;
+  setTheme: (theme: AllowedThemes) => void;
 }
 
-export const DarkModeContext = createContext<ThemeContextProps>({
-  theme: "system", 
-  setTheme: () => {}, 
+export const ThemeContext = createContext<ThemeContextProps>({
+  theme: "system",
+  systemMode: "light",
+  setTheme: () => {},
 });
 
 export default function ThemeProvider({
@@ -18,20 +22,41 @@ export default function ThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [theme, setTheme] = useState<"light" | "dark" | "system">("light");
+  const [systemMode, setSystemMode] = useState<SystemMode>(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const currentTheme = mediaQuery.matches ? "dark" : "light";
+    return currentTheme;
+  });
+  const [theme, setTheme] = useState<AllowedThemes>(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      return storedTheme as AllowedThemes;
+    }
+    return "system";
+  });
 
-  const setNewTheme = (theme: "light" | "dark" | "system") => {
-    setTheme(theme);
-  };
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    if (theme === "system") {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const handleChange = () => {
+        const currentTheme = mediaQuery.matches ? "dark" : "light";
+        setSystemMode(currentTheme);
+      };
+      mediaQuery.addEventListener("change", handleChange);
+      handleChange();
+      return () => {
+        mediaQuery.removeEventListener("change", handleChange);
+      };
+    }
+  }, [theme]);
 
   return (
-    <DarkModeContext.Provider
-      value={{
-        theme, // memberikan nilai theme
-        setTheme: setNewTheme, // memberikan setTheme yang menerima parameter
-      }}
-    >
+    <ThemeContext.Provider value={{ theme, setTheme, systemMode }}>
       {children}
-    </DarkModeContext.Provider>
+    </ThemeContext.Provider>
   );
 }
