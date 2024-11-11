@@ -10,6 +10,7 @@ import { ComputerDesktopIcon } from "../icons/ComputerDesktopIcon";
 import { motion } from "framer-motion";
 import { ThemeContext } from "@/context/ThemeProvider";
 import SelectedIconNavbar from "./SelectedIconNavbar";
+import CinCLogo from "../logo/CinCLogo";
 
 export default function Navbar() {
   const [displayMode, setDisplayMode] = useState(false);
@@ -33,14 +34,7 @@ export default function Navbar() {
             >
               <Bars3Icon className="size-6 text-slate-400 group-hover:text-slate-500 group-active:text-slate-400" />
             </button>
-            <div className="h-full flex items-center w-fit">
-              <h1 className="text-2xl text-colorSky">
-                <span className="font-bold">C</span>
-                <span className="text-base">in</span>
-                <span className="font-bold">C</span>
-                <span className="ordinal">official</span>
-              </h1>
-            </div>
+            <CinCLogo />
           </div>
 
           <div className="relative h-full w-fit flex items-center">

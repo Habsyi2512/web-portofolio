@@ -5,6 +5,7 @@ import Navbar from "@/components/navigation/Navbar";
 import Sidebar from "@/components/navigation/sidebar/Sidebar";
 import NavbarProvider from "@/context/NavbarProvider";
 import ThemeProvider from "@/context/ThemeProvider";
+import MobileSidebar from "@/components/navigation/sidebar/MobileSidebar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,6 +39,7 @@ export default function RootLayout({
             <Navbar />
             <div className="w-full flex gap-x-2 max-w-7xl mx-auto px-4 sm:px-5 md:px-8 py-10">
               <Sidebar />
+              <MobileSidebar />
               <div className="w-full">{children}</div>
             </div>
           </NavbarProvider>
