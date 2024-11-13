@@ -22,10 +22,7 @@ export default function ThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [theme, setTheme] = useState<AllowedThemes>(() => {
-    const storedTheme = localStorage.getItem("theme") as AllowedThemes | null;
-    return storedTheme ?? "system";
-  });
+  const [theme, setTheme] = useState<AllowedThemes>("system");
 
   const [systemMode, setSystemMode] = useState<SystemMode>(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -60,6 +57,22 @@ export default function ThemeProvider({
       return () => mediaQuery.removeEventListener("change", handleChange);
     }
   }, [theme]);
+
+  function getStoredTheme(): AllowedThemes {
+    const storedTheme = localStorage.getItem("theme");
+    if (
+      storedTheme === "light" ||
+      storedTheme === "dark" ||
+      storedTheme === "system"
+    ) {
+      return storedTheme;
+    }
+    return "system";
+  }
+
+  useEffect(() => {
+    setTheme(getStoredTheme());
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, systemMode }}>
