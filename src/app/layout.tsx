@@ -7,6 +7,8 @@ import ThemeProvider from "@/context/ThemeProvider";
 import Navbar from "@/components/Navigation/Navbar";
 import Sidebar from "@/components/Navigation/sidebar/Sidebar";
 import MobileSidebar from "@/components/Navigation/sidebar/MobileSidebar";
+import InstagramIcon from "@/components/icons/InstagramIcon";
+import TiktokIcon from "@/components/icons/TiktokIcon";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -44,6 +46,21 @@ export default function RootLayout({
               <div className="w-full">{children}</div>
             </div>
           </NavbarProvider>
+          <footer className="bg-white dark:bg-colorDarkFirst ">
+            <div className="bg-slate-200 dark:bg-colorDarkFirst h-36 flex items-center justify-center gap-x-5">
+              <button className="hover:bg-colorLightSecond/30 p-3 rounded-lg group transition-colors">
+                <InstagramIcon className="size-8 text-colorDarkFirst/50 dark:text-colorDarkThird" />
+              </button>
+              <button className="hover:bg-colorLightSecond/30 p-3 rounded-lg group transition-colors">
+                <TiktokIcon className="size-8 text-colorDarkFirst/50 dark:text-colorDarkThird" />
+              </button>
+            </div>
+            <div className="h-20 border-t dark:border-colorLightSecond/50 flex items-center justify-center">
+              <span className="font-semibold text-sm  text-colorDarkThird">
+                Made With CinC🐣
+              </span>
+            </div>
+          </footer>
         </ThemeProvider>
       </body>
     </html>

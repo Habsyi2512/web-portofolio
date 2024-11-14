@@ -9,8 +9,8 @@ import { SunIcon } from "../icons/SunIcon";
 import { ComputerDesktopIcon } from "../icons/ComputerDesktopIcon";
 import { motion } from "framer-motion";
 import { ThemeContext } from "@/context/ThemeProvider";
-import SelectedIconNavbar from "./SelectedIconNavbar";
 import CinCLogo from "../logo/CinCLogo";
+import SelectedIconNavbar from "./SelectedIconNavbar";
 
 export default function Navbar() {
   const [displayMode, setDisplayMode] = useState(false);
