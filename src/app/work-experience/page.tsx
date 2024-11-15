@@ -4,7 +4,7 @@ import { Paragraph, TextTitle } from "@/components/typography/Typography";
 
 export default function Page() {
   return (
-    <div className='text-justify'>
+    <div className='text-justify text-colorDarkSecond dark:text-colorDarkThird'>
       <TextTitle title="Work Experience" />
       <Paragraph>
       Kami mempunyai pengalaman mengerjakan proyek dengan berbagai bahasa seperti berikut.

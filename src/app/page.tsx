@@ -2,7 +2,7 @@ import { Paragraph, TextTitle } from "@/components/typography/Typography";
 
 export default function Page() {
   return (
-    <div className="space-y-4 text-justify">
+    <div className="space-y-4 text-justify text-colorDarkSecond dark:text-colorDarkThird">
       <TextTitle title="Introduction" />
       <Paragraph>
         <strong>
