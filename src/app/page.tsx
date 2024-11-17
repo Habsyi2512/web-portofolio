@@ -1,4 +1,8 @@
-import { Paragraph, TextTitle } from "@/components/typography/Typography";
+import {
+  Paragraph,
+  TextSubtitle,
+  TextTitle,
+} from "@/components/typography/Typography";
 
 export default function Page() {
   return (
@@ -48,9 +52,7 @@ export default function Page() {
       kebutuhan spesifik, dan tantangan yang dihadapi. Selanjutnya, kami bekerja
       sama dengan Anda untuk merancang strategi yang disesuaikan, sehingga
       hasilnya benar-benar memberikan dampak nyata.
-      <Paragraph>
-        <strong>Layanan Utama Kami</strong>
-      </Paragraph>
+      <TextSubtitle title="Layanan Utama Kami" />
       <ul className="list-disc ml-6 space-y-1">
         <li>
           <strong>Konsultasi Teknologi Strategis</strong> – Membantu perusahaan
