@@ -39,6 +39,63 @@ export default function Portofolio() {
             </div>
           </Card>
         </div>
+        <div>
+          <Card>
+            <div className="border bg-gray-400 aspect-video flex flex-col justify-center mb-2">
+              <p className="text-center font-bold text-lg text-gray-200">
+                Image 1:1
+              </p>
+            </div>
+            <div>
+              <TextSubtitle title="Judul" />
+              <div>
+                <Paragraph>Unknown</Paragraph>
+              </div>
+              <Paragraph>
+                Website untuk streaming dan download film drama korea dan
+                negara-negara lainnya.
+              </Paragraph>
+            </div>
+          </Card>
+        </div>
+        <div>
+          <Card>
+            <div className="border bg-gray-400 aspect-video flex flex-col justify-center mb-2">
+              <p className="text-center font-bold text-lg text-gray-200">
+                Image 1:1
+              </p>
+            </div>
+            <div>
+              <TextSubtitle title="Judul" />
+              <div>
+                <Paragraph>Unknown</Paragraph>
+              </div>
+              <Paragraph>
+                Website untuk streaming dan download film drama korea dan
+                negara-negara lainnya.
+              </Paragraph>
+            </div>
+          </Card>
+        </div>
+        <div>
+          <Card>
+            <div className="border bg-gray-400 aspect-video flex flex-col justify-center mb-2">
+              <p className="text-center font-bold text-lg text-gray-200">
+                Image 1:1
+              </p>
+            </div>
+            <div>
+              <TextSubtitle title="Judul" />
+              <div>
+                <Paragraph>Unknown</Paragraph>
+              </div>
+              <Paragraph>
+                Website untuk streaming dan download film drama korea dan
+                negara-negara lainnya.
+              </Paragraph>
+            </div>
+          </Card>
+        </div>
       </div>
     </>
   );
