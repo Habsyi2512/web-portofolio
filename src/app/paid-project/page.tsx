@@ -5,9 +5,10 @@ import {
   TextSubtitle,
   TextTitle,
 } from "@/components/typography/Typography";
+import Image from "next/image";
 import React from "react";
 
-export default function PaidPorto() {
+export default function Paid() {
   return (
     <>
       <TextTitle title="Overview" />
@@ -22,38 +23,45 @@ export default function PaidPorto() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <Card>
-            <div className="border bg-gray-400 aspect-video flex flex-col justify-center mb-2">
-              <p className="text-center font-bold text-lg text-gray-200">
-                Image 1:1
-              </p>
-            </div>
+            <Image className="w-full aspect-video" 
+            alt="iki"
+            width={1000}
+            height={1000}
+            src={"/ammomed.jpeg"}/>
             <div>
-              <TextSubtitle title="Judul" />
-              <div>
-                <Paragraph>Unknown</Paragraph>
-              </div>
+              <TextSubtitle title="Ammomed Indonesia" />
               <Paragraph>
-                Website untuk streaming dan download film drama korea dan
-                negara-negara lainnya.
+                Website untuk membantu mahasiswa kedokteran dalam mengerjakan tugas dan belajar bidang kedokteran
               </Paragraph>
             </div>
           </Card>
         </div>
         <div>
           <Card>
-            <div className="border bg-gray-400 aspect-video flex flex-col justify-center mb-2">
-              <p className="text-center font-bold text-lg text-gray-200">
-                Image 1:1
-              </p>
-            </div>
+            <Image className="w-full aspect-video" 
+            alt="iki"
+            width={1000}
+            height={1000}
+            src={"/disduk.jpeg"}/>
             <div>
-              <TextSubtitle title="Judul" />
-              <div>
-                <Paragraph>Unknown</Paragraph>
-              </div>
+              <TextSubtitle title="Disdukcapil Anambas" />
               <Paragraph>
-                Website untuk streaming dan download film drama korea dan
-                negara-negara lainnya.
+                Website untuk pelayanan informasi publik disdukcapil Anambas tercinta 
+              </Paragraph>
+            </div>
+          </Card>
+        </div>
+        <div>
+          <Card>
+            <Image className="w-full aspect-video" 
+            alt="iki"
+            width={1000}
+            height={1000}
+            src={"/Fashion.jpeg"}/>
+            <div>
+              <TextSubtitle title="CAUMY" />
+              <Paragraph>
+                Website untuk perlombaan fashion mahasiswa UMY
               </Paragraph>
             </div>
           </Card>
