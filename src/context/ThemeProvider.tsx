@@ -23,31 +23,38 @@ export default function ThemeProvider({
   children: React.ReactNode;
 }) {
   const [theme, setTheme] = useState<AllowedThemes>("system");
-
-  const [systemMode, setSystemMode] = useState<SystemMode>(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    return mediaQuery.matches ? "dark" : "light";
-  });
+  const [systemMode, setSystemMode] = useState<SystemMode>("light");
 
   useEffect(() => {
-    if (theme != "system") {
-      localStorage.setItem("theme", theme);
-    } else {
-      localStorage.setItem("theme", systemMode);
+    if (typeof window !== "undefined") {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      setSystemMode(mediaQuery.matches ? "dark" : "light");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (theme !== "system") {
+        localStorage.setItem("theme", theme);
+      } else {
+        localStorage.setItem("theme", systemMode);
+      }
     }
   }, [theme, systemMode]);
 
   useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === "dark" || (theme === "system" && systemMode === "dark")) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
+    if (typeof window !== "undefined") {
+      const root = window.document.documentElement;
+      if (theme === "dark" || (theme === "system" && systemMode === "dark")) {
+        root.classList.add("dark");
+      } else {
+        root.classList.remove("dark");
+      }
     }
   }, [theme, systemMode]);
 
   useEffect(() => {
-    if (theme === "system") {
+    if (theme === "system" && typeof window !== "undefined") {
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
       const handleChange = () =>
         setSystemMode(mediaQuery.matches ? "dark" : "light");
@@ -59,13 +66,15 @@ export default function ThemeProvider({
   }, [theme]);
 
   function getStoredTheme(): AllowedThemes {
-    const storedTheme = localStorage.getItem("theme");
-    if (
-      storedTheme === "light" ||
-      storedTheme === "dark" ||
-      storedTheme === "system"
-    ) {
-      return storedTheme;
+    if (typeof window !== "undefined") {
+      const storedTheme = localStorage.getItem("theme");
+      if (
+        storedTheme === "light" ||
+        storedTheme === "dark" ||
+        storedTheme === "system"
+      ) {
+        return storedTheme;
+      }
     }
     return "system";
   }

@@ -14,12 +14,10 @@ interface NavbarContextType {
   setIsOpenSidebar: Dispatch<SetStateAction<boolean>>;
 }
 
-export const NavbarContext = createContext<NavbarContextType>(
-  {
-    isOpenSidebar: false,
-    setIsOpenSidebar: () => {},
-  }
-);
+export const NavbarContext = createContext<NavbarContextType>({
+  isOpenSidebar: false,
+  setIsOpenSidebar: () => {},
+});
 
 export default function NavbarProvider({
   children,
@@ -38,20 +36,22 @@ export default function NavbarProvider({
   }, [isOpenSidebar]);
 
   useEffect(() => {
-    let previousWidth = window.innerWidth;
+    if (typeof window !== "undefined") {
+      let previousWidth = window.innerWidth;
 
-    const handleResize = () => {
-      const currentWidth = window.innerWidth;
-      if (previousWidth >= 1024 && currentWidth < 1024 && isOpenSidebar) {
-        setIsOpenSidebar(false);
-      }
+      const handleResize = () => {
+        const currentWidth = window.innerWidth;
+        if (previousWidth >= 1024 && currentWidth < 1024 && isOpenSidebar) {
+          setIsOpenSidebar(false);
+        }
+        previousWidth = currentWidth;
+      };
 
-      previousWidth = currentWidth;
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, [isOpenSidebar]);
+
   return (
     <NavbarContext.Provider value={{ isOpenSidebar, setIsOpenSidebar }}>
       {children}
