@@ -11,12 +11,10 @@ import React from "react";
 export default function Portofolio() {
   return (
     <>
-      <TextTitle title="Overview" />
+      <TextTitle title="CinC Portofolio" />
       <BoxContent>
         <Paragraph className="">
-          Sebagai fullstack web developer, saya ahli dalam menciptakan website
-          responsif dengan desain UX menarik menggunakan berbagai framework dan
-          teknologi terkini.
+          Sebagai IT Consultant dibawah ini merupakan hasil kerja kami baik yang sudah selesai ataupun masih dalam tahap pengembangan:
         </Paragraph>
       </BoxContent>
       <TextSubtitle title="Showcase" />
@@ -62,6 +60,21 @@ export default function Portofolio() {
               <TextSubtitle title="CAUMY" />
               <Paragraph>
                 Website untuk perlombaan fashion mahasiswa UMY
+              </Paragraph>
+            </div>
+          </Card>
+        </div>
+        <div>
+          <Card>
+            <Image className="w-full aspect-video" 
+            alt="iki"
+            width={1000}
+            height={1000}
+            src={"/restapi.jpeg"}/>
+            <div>
+              <TextSubtitle title="REST API" />
+              <Paragraph>
+                Website untuk para developer mengembangkan websitenya dalam lingkup API
               </Paragraph>
             </div>
           </Card>
